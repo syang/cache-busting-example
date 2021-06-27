@@ -25,9 +25,12 @@ jobs:
 
       - name: Build
         run: npm run build
-      - uses: jeanlescure/react-deploy-to-s3-action@main
-        with:
-          args: --acl public-read --follow-symlinks --delete
+      - name: Upload
+        run: |
+          aws s3 cp \
+            --recursive \
+            --region us-east-1 \
+            {{ $env.SOURCE_DIR }} s3://{{ $env.AWS_S3_BUCKET }}
         env:
           NODE_ENV: development # optional: defaults to production
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
