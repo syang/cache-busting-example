@@ -46,6 +46,6 @@ jobs:
       - name: Invalidate
         run: |
           aws cloudfront create-invalidation \ 
-            --distribution-id ${{ env.CLOUDFRONT_ID }} --paths "/*"
+            --distribution-id ESVTWI4SBI9PL --paths "/*"
         env:
           CLOUDFRONT_ID: ESVTWI4SBI9PL
