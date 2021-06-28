@@ -25,6 +25,11 @@ jobs:
 
       - name: Build
         run: npm run build
+      - name: Install AWSCli
+        run: |
+          sudo apt-get install python-dev python-pip
+          sudo pip install awscli
+          aws --version
       - name: Upload
         run: |
           aws s3 cp \
