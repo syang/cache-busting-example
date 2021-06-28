@@ -29,7 +29,7 @@ jobs:
         run: |
           aws s3 cp \
             --recursive \
-            --region ${{ AWS_REGION }} \
+            --region ${{ env.AWS_REGION }} \
             ${{ env.SOURCE_DIR }} s3://${{ env.AWS_S3_BUCKET }}
         env:
           NODE_ENV: development # optional: defaults to production
