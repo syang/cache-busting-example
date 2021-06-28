@@ -41,6 +41,7 @@ jobs:
           SOURCE_DIR: build # optional: defaults to public
       - name: Invalidate Cloudfront
         run: |
+          aws configure set preview.cloudfront true
           aws cloudfront create-invalidation \ 
             --distribution-id ESVTWI4SBI9PL \
             --paths "/*"
