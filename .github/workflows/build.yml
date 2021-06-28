@@ -27,7 +27,7 @@ jobs:
         run: npm run build
       - name: Install AWSCli
         run: |
-          sudo apt-get install python-dev python-pip
+          sudo apt-get install python-dev python3-pip
           sudo pip install awscli
           aws --version
       - name: Upload
