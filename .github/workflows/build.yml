@@ -38,3 +38,9 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1 # optional: defaults to us-east-1
           SOURCE_DIR: build # optional: defaults to public
+      - name Invalidate
+        run: |
+          aws cloudfront create-invalidation \ 
+            --distribution-id ${CLOUDFRONT_ID} --paths "/*"
+        env:
+          CLOUDFRONT_ID: ESVTWI4SBI9PL
