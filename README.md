@@ -1,6 +1,6 @@
 ## Status
 
-![](https://github.com/syang/cache-busting-example/workflows/build.yml/badge.svg)
+![Continuous Deployment](https://github.com/syang/cache-busting-example/actions/workflows/build.yml/badge.svg)
 
 
 ## Source of solution
