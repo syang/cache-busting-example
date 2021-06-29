@@ -1,6 +1,6 @@
 ## Status
 
-![](hhttps://github.com/syang/cache-busting-example/workflows/build/badge.svg)
+![](hhttps://github.com/syang/cache-busting-example/workflows/build.yml/badge.svg)
 
 
 ## Source of solution
