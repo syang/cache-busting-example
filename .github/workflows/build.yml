@@ -38,10 +38,10 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ${{ env.AWS_REGION }} \
-            ${{ env.SOURCE_DIR }} s3://${{ env.AWS_S3_BUCKET_DEV }}
+            ${{ env.SOURCE_DIR }} s3://${{ env.AWS_S3_BUCKET }}
         env:
           NODE_ENV: development # optional: defaults to production
-          AWS_S3_BUCKET_DEV: ${{ secrets.AWS_S3_BUCKET_DEV }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_DEV }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1 # optional: defaults to us-east-1
@@ -49,8 +49,8 @@ jobs:
       - name: Invalidate Cloudfront
         run: |
           aws cloudfront create-invalidation --distribution-id \
-            ${{ env.CLOUDFRONT_ID_DEV }} --paths "/*" --region us-east-1
+            ${{ env.CLOUDFRONT_ID }} --paths "/*" --region us-east-1
         env:
-          CLOUDFRONT_ID_DEV: E1FGO1O297UWEM
+          CLOUDFRONT_ID: ${{ secrets.AWS_CLOUDFRONT_DEV }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
