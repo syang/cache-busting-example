@@ -45,7 +45,7 @@ function MainApp(props) {
         <p>Build date: {getBuildDate(packageJson.buildDate)}</p>
         <p>
            Edit <code>src/App.js</code>.
-           Edition 11 (on afternoon 7/1/2021)
+           Edition 12 (on afternoon 7/11/2021)
         </p>
       </header>
     </div>
